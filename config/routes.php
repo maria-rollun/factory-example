@@ -43,4 +43,7 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
 
     $app->get('/parse/upper', 'ParsingUpper', 'parsing.upper');
     $app->get('/parse/lower', 'ParsingLower', 'parsing.lower');
+
+    $app->get('/parse/title/upper', 'ParsingTitleUpper', 'parsing.title.upper');
+    $app->get('/parse/category/lower', 'ParsingCategoryLower', 'parsing.category.lower');
 };
