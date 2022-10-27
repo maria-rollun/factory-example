@@ -6,7 +6,7 @@ namespace Example2\Parser;
 
 use Psr\Http\Message\UriInterface;
 
-class TitleParser extends AbstractParser
+class ProductParser extends AbstractParser
 {
 
     public function parse(UriInterface $url): string

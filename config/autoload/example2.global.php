@@ -7,7 +7,7 @@ use Example1\Formatter\StringToUpper;
 use Example2\Parser\ParserAbstractFactory;
 use Example2\ParsingHandlerAbstractFactory;
 use Example2\Parser\CategoryParser;
-use Example2\Parser\TitleParser;
+use Example2\Parser\ProductParser;
 use Laminas\Http\Client;
 
 return [
@@ -25,16 +25,16 @@ return [
         ],
     ],
     ParserAbstractFactory::KEY => [
-        TitleParser::class => [
-            ParserAbstractFactory::KEY_CLASS => TitleParser::class,
+        ProductParser::class => [
+            ParserAbstractFactory::KEY_CLASS => ProductParser::class,
         ],
         CategoryParser::class => [
             ParserAbstractFactory::KEY_CLASS => CategoryParser::class,
         ],
     ],
     ParsingHandlerAbstractFactory::KEY => [
-        'ParsingTitleUpper' => [
-            ParsingHandlerAbstractFactory::KEY_PARSER => TitleParser::class,
+        'ParsingProductUpper' => [
+            ParsingHandlerAbstractFactory::KEY_PARSER => ProductParser::class,
             ParsingHandlerAbstractFactory::KEY_FORMATTER => StringToUpper::class,
         ],
         'ParsingCategoryLower' => [
