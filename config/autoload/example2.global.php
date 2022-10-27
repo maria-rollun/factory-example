@@ -24,7 +24,7 @@ return [
             ParsingHandlerAbstractFactory::class,
         ],
     ],
-    ParserAbstractFactory::class => [
+    ParserAbstractFactory::KEY => [
         TitleParser::class => [
             ParserAbstractFactory::KEY_CLASS => TitleParser::class,
         ],
@@ -32,7 +32,7 @@ return [
             ParserAbstractFactory::KEY_CLASS => CategoryParser::class,
         ],
     ],
-    ParsingHandlerAbstractFactory::class => [
+    ParsingHandlerAbstractFactory::KEY => [
         'ParsingTitleUpper' => [
             ParsingHandlerAbstractFactory::KEY_PARSER => TitleParser::class,
             ParsingHandlerAbstractFactory::KEY_FORMATTER => StringToUpper::class,

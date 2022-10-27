@@ -12,6 +12,8 @@ use Psr\Container\ContainerInterface;
 
 class ParserAbstractFactory implements AbstractFactoryInterface
 {
+    public const KEY = self::class;
+
     public const KEY_CLASS = 'class';
 
     private const DEFAULT_INTERFACE = ParserInterface::class;

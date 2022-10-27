@@ -11,6 +11,8 @@ use Psr\Container\ContainerInterface;
 
 class ParsingHandlerAbstractFactory implements AbstractFactoryInterface
 {
+    public const KEY = self::class;
+
     public const KEY_FORMATTER = 'formatter';
 
     public function canCreate(ContainerInterface $container, $requestedName)

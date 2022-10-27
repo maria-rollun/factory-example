@@ -22,7 +22,7 @@ return [
             ParsingHandlerAbstractFactory::class,
         ],
     ],
-    ParsingHandlerAbstractFactory::class => [
+    ParsingHandlerAbstractFactory::KEY => [
         'ParsingUpper' => [
             ParsingHandlerAbstractFactory::KEY_FORMATTER => StringToUpper::class,
         ],
