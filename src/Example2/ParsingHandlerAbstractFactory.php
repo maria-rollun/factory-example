@@ -13,7 +13,7 @@ class ParsingHandlerAbstractFactory implements AbstractFactoryInterface
 {
     public const KEY_PARSER = 'parser';
 
-    public const KEY_FILTER = 'filter';
+    public const KEY_FORMATTER = 'formatter';
 
     public function canCreate(ContainerInterface $container, $requestedName)
     {
@@ -38,14 +38,14 @@ class ParsingHandlerAbstractFactory implements AbstractFactoryInterface
 
         $serviceConfig = $config[self::class][$requestedName];
 
-        if (!isset($serviceConfig[self::KEY_PARSER], $serviceConfig[self::KEY_FILTER])) {
+        if (!isset($serviceConfig[self::KEY_PARSER], $serviceConfig[self::KEY_FORMATTER])) {
             throw new ServiceNotCreatedException("Required config key is missing");
         }
 
-        $filter = $container->get($serviceConfig[self::KEY_FILTER]);
+        $formatter = $container->get($serviceConfig[self::KEY_FORMATTER]);
 
         $parser = $container->get($serviceConfig[self::KEY_PARSER]);
 
-        return new ParsingHandler($parser, $filter);
+        return new ParsingHandler($parser, $formatter);
     }
 }

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Example1\Filter\StringToLower;
-use Example1\Filter\StringToUpper;
+use Example1\Formatter\StringToLower;
+use Example1\Formatter\StringToUpper;
 use Example2\Parser\ParserAbstractFactory;
 use Example2\ParsingHandlerAbstractFactory;
 use Example2\Parser\CategoryParser;
@@ -35,11 +35,11 @@ return [
     ParsingHandlerAbstractFactory::class => [
         'ParsingTitleUpper' => [
             ParsingHandlerAbstractFactory::KEY_PARSER => TitleParser::class,
-            ParsingHandlerAbstractFactory::KEY_FILTER => StringToUpper::class,
+            ParsingHandlerAbstractFactory::KEY_FORMATTER => StringToUpper::class,
         ],
         'ParsingCategoryLower' => [
             ParsingHandlerAbstractFactory::KEY_PARSER => CategoryParser::class,
-            ParsingHandlerAbstractFactory::KEY_FILTER => StringToLower::class,
+            ParsingHandlerAbstractFactory::KEY_FORMATTER => StringToLower::class,
         ],
     ],
 ];

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Example1;
 
-use Example1\Filter\FilterInterface;
+use Example1\Formatter\FormatterInterface;
 use Example1\Parser\ParserInterface;
 use Laminas\Diactoros\Response\JsonResponse;
 use Laminas\Diactoros\Uri;
@@ -17,23 +17,23 @@ class ParsingHandler implements RequestHandlerInterface
     /** @var ParserInterface */
     private $parser;
 
-    /** @var FilterInterface */
-    private $filter;
+    /** @var FormatterInterface */
+    private $formatter;
 
     public function __construct(
         ParserInterface $parser,
-        FilterInterface $filter
+        FormatterInterface $formatter
     ) {
         $this->parser = $parser;
-        $this->filter = $filter;
+        $this->formatter = $formatter;
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $data = $this->parser->parse(new Uri('some-url'));
 
-        $filteredData = $this->filter->filter($data);
+        $formattedData = $this->formatter->format($data);
 
-        return new JsonResponse($filteredData);
+        return new JsonResponse($formattedData);
     }
 }

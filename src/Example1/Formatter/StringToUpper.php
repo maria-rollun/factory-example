@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Example1\Filter;
+namespace Example1\Formatter;
 
-class StringToUpper implements FilterInterface
+class StringToUpper implements FormatterInterface
 {
 
-    public function filter($value)
+    public function format($value)
     {
         if (!is_scalar($value)) {
             return $value;
