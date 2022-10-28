@@ -22,11 +22,11 @@ class ParserAbstractFactory implements AbstractFactoryInterface
     {
         $config = $container->get('config');
 
-        if (!isset($config[self::class])) {
+        if (!isset($config[self::KEY])) {
             return false;
         }
 
-        $servicesConfig = $config[self::class];
+        $servicesConfig = $config[self::KEY];
 
         if (!is_array($servicesConfig) || !array_key_exists($requestedName, $servicesConfig)) {
             return false;
@@ -40,11 +40,11 @@ class ParserAbstractFactory implements AbstractFactoryInterface
     {
         $config = $container->get('config');
 
-        if (!isset($config[self::class][$requestedName])) {
+        if (!isset($config[self::KEY][$requestedName])) {
             throw new ServiceNotCreatedException("Can't find config");
         }
 
-        $serviceConfig = $config[self::class][$requestedName];
+        $serviceConfig = $config[self::KEY][$requestedName];
 
         if (!isset($serviceConfig[self::KEY_CLASS])) {
             throw new ServiceNotCreatedException("Required config key 'class' is missing");
